@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chefs2Table.com — Gourmet Meals. Exceptional Deals.</title>
+  <meta name="description" content="Chefs2Table.com connects you with local hidden chefs for daily curated gourmet meals. Order in seconds. $0.99 platform fee. 100% satisfaction guarantee." />
+  <meta property="og:title" content="Chefs2Table — Gourmet Meals. Exceptional Deals." />
+  <meta property="og:description" content="Daily curated gourmet meals from local chefs. Transparent pricing. Delivered fresh." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1604908177076-9aa3b2cc9eab?q=80&w=1200&auto=format&fit=crop" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='84'>🍽️</text></svg>">
+  <style>
+    :root{
+      --red:#9b1c18;         /* brand crimson */
+      --gold:#d89a2b;        /* accent */
+      --cream:#fff7ee;       /* background wash */
+      --ink:#111;            /* text */
+      --muted:#6b6b6b;       /* subtext */
+      --card:#fff;           /* surfaces */
+      --ok:#27ae60;          /* success */
+      --shadow:0 10px 30px rgba(15,15,15,.08);
+      --radius:18px;
+      --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:var(--ink);background:linear-gradient(180deg,#fff 0%, #fff9f5 100%);-webkit-font-smoothing:antialiased}
+    a{color:var(--red);text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #f5e9e3;z-index:1000}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--red),#c53b31);box-shadow:var(--shadow)}
+    .logo svg{width:32px;height:32px}
+    .brand h1{font-size:18px;margin:0;color:var(--red);font-weight:800}
+    .brand small{display:block;color:var(--muted);font-weight:600}
+    .links{display:flex;gap:18px;align-items:center}
+    .links a{color:#333;font-weight:600}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 16px;border-radius:12px;font-weight:800;border:1px solid transparent}
+    .btn.gold{background:var(--gold);color:#fff;box-shadow:0 8px 24px rgba(216,154,43,.28)}
+    .btn.gold:hover{filter:brightness(1.05)}
+    .btn.red{background:var(--red);color:#fff;box-shadow:0 8px 24px rgba(155,28,24,.25)}
+    .btn.ghost{border-color:#eee;background:#fff;color:var(--red)}
+    .menu-btn{display:none;background:none;border:none;font-size:30px;color:var(--red)}
+    .mobile{display:none}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center;padding:28px 0 10px}
+    .hero-card{background:linear-gradient(180deg,var(--cream),#fff);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px}
+    .tag{display:inline-block;background:var(--gold);color:#fff;padding:6px 12px;border-radius:10px;font-weight:800;margin-bottom:12px}
+    h2{font-size:36px;line-height:1.15;margin:0 0 10px}
+    .lead{color:#333;margin:0 0 16px}
+    .trust{display:flex;gap:14px;flex-wrap:wrap;margin:12px 0}
+    .trust .chip{background:#fff5e6;border:1px solid rgba(200,150,60,.22);color:#b26b00;padding:6px 10px;border-radius:999px;font-weight:800;font-size:13px}
+
+    .hero-form{display:grid;gap:12px;grid-template-columns:1.2fr .8fr auto}
+    .input, .select{padding:14px 14px;border:2px solid #eee;border-radius:12px;font-size:15px;font-family:inherit}
+    .input:focus, .select:focus{outline:none;border-color:var(--gold)}
+
+    .aside{background:linear-gradient(180deg,#fff,#fff8ef);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .aside img{width:100%;height:280px;object-fit:cover;border-radius:12px;margin-bottom:12px}
+    .aside .meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:14px}
+    .aside .label{color:var(--red);font-weight:800}
+
+    /* Feature grid */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
+    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--shadow);transition:transform .18s}
+    .card:hover{transform:translateY(-4px)}
+    .badge{display:inline-block;background:#fff5e6;color:#b26b00;padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;border:1px solid rgba(200,150,60,.14);margin-bottom:8px}
+    .card h3{margin:0 0 6px;color:var(--red);font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* How it works + Leaderboard */
+    .section{padding:26px 0}
+    .section h3{font-size:26px;margin:0 0 8px;color:var(--red)}
+    .how{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .step{background:linear-gradient(180deg,#fff,#fffaf0);padding:18px;border-radius:12px;border:1px solid #ffeeda}
+    .step h4{margin:0 0 6px;color:var(--ink)}
+
+    .leaderboard{background:linear-gradient(180deg,#fff,#fff9f2);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+    .row{display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;background:#fff;border:1px solid #fff2e0}
+    .row+.row{margin-top:8px}
+    .rank{background:var(--red);color:#fff;font-weight:800;border-radius:8px;min-width:38px;text-align:center;padding:8px}
+    .meta{font-size:13px;color:var(--muted)}
+
+    /* Chef recruit */
+    .recruit{display:grid;grid-template-columns:1fr 360px;gap:20px;background:linear-gradient(135deg,#fff8f2,#fff);border-radius:14px;box-shadow:var(--shadow);padding:20px}
+    .recruit img{width:100%;height:260px;border-radius:12px;object-fit:cover}
+
+    /* Testimonials */
+    .tests{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .test{background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+
+    /* FAQ */
+    details{background:#fff;border-radius:12px;padding:14px;box-shadow:0 6px 18px rgba(20,20,20,.04)}
+    summary{cursor:pointer;font-weight:800;color:#222;list-style:none;display:flex;justify-content:space-between}
+    summary::after{content:"▾";font-size:12px}
+    details[open] summary::after{transform:rotate(180deg)}
+    details p{color:var(--muted)}
+
+    /* Footer */
+    footer{margin-top:36px;padding:22px 0;border-top:1px solid #ffeada;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+    /* Responsive */
+    @media(max-width:1000px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .how{grid-template-columns:1fr}
+      .recruit{grid-template-columns:1fr}
+      .tests{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:720px){
+      .links{display:none}
+      .menu-btn{display:block}
+      .mobile{display:flex;position:fixed;inset:0;background:rgba(0,0,0,.9);align-items:center;justify-content:center;flex-direction:column;gap:20px;z-index:2000;opacity:0;pointer-events:none;transition:opacity .2s}
+      .mobile.show{opacity:1;pointer-events:auto}
+      .grid{grid-template-columns:1fr}
+      h2{font-size:28px}
+      .hero-form{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2c-3.3 0-6 2.7-6 6v1H5a4 4 0 100 8h1v1c0 3.3 5.2 8.2 5.2 8.2.5.4 1.1.4 1.6 0 0 0 5.2-4.9 5.2-8.2v-1h1a4 4 0 100-8h-1V8c0-3.3-2.7-6-6-6z" fill="#fff" opacity=".95"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Chefs2Table.com</h1>
+          <small>Gourmet Meals. Exceptional Deals.</small>
+        </div>
+      </div>
+      <nav class="links" aria-label="Main navigation">
+        <a href="#how">How it works</a>
+        <a href="#menu">Today’s menu</a>
+        <a href="#chefs">Become a chef</a>
+        <a class="btn gold" href="#waitlist">Join Waitlist</a>
+      </nav>
+      <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+    </div>
+    <div class="mobile" id="mnav">
+      <a class="btn gold" href="#waitlist" onclick="toggleMenu()">Join Waitlist</a>
+      <a class="btn ghost" href="#how" onclick="toggleMenu()">How it works</a>
+      <a class="btn ghost" href="#chefs" onclick="toggleMenu()">Become a chef</a>
+      <a class="btn ghost" href="#faq" onclick="toggleMenu()">FAQ</a>
+      <button class="btn red" onclick="toggleMenu()">Close</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="waitlist">
+      <div class="hero-card">
+        <span class="tag">From $15 / meal</span>
+        <h2>Restaurant‑quality meals from local chefs — delivered fresh daily</h2>
+        <p class="lead">Discover chef‑crafted dishes from home cooks, retired pros, and rising culinary artists in your city. Daily rotating menus. One click. Fresh to your door.</p>
+        <div class="trust">
+          <span class="chip">100% Money‑Back Guarantee</span>
+          <span class="chip">Food‑Safety Verified</span>
+          <span class="chip">$0.99 platform fee</span>
+        </div>
+        <form class="hero-form" onsubmit="joinWaitlist(event)">
+          <input class="input" id="email" type="email" placeholder="you@example.com" aria-label="Email" required>
+          <select class="select" id="city" aria-label="City" required>
+            <option value="">Select your city</option>
+            <option>Toronto</option>
+            <option>New York</option>
+            <option>Los Angeles</option>
+            <option>Vancouver</option>
+            <option>Chicago</option>
+            <option>Other</option>
+          </select>
+          <button class="btn red" type="submit">Join Waitlist</button>
+        </form>
+        <p class="meta" style="color:var(--muted);margin-top:10px">🎁 Early bird: first 500 members get $25 credits + VIP access</p>
+
+        <!-- Feature grid under hero copy -->
+        <div class="grid">
+          <div class="card"><span class="badge">Daily curated</span><h3>Zero decision fatigue</h3><p>2–5 chef‑selected dishes each day. Only the best make the cut.</p></div>
+          <div class="card"><span class="badge">Chef‑first</span><h3>Local hidden chefs</h3><p>Verified home cooks & pros. Real stories. Real flavors.</p></div>
+          <div class="card"><span class="badge">Quality</span><h3>Ratings that matter</h3><p>Chefs rise with 4.5★+ scores. Underperformers are removed.</p></div>
+          <div class="card"><span class="badge">Transparent</span><h3>Clear pricing</h3><p>$15–28 per meal + $0.99 fee. No tricks. No subscriptions required.</p></div>
+        </div>
+      </div>
+      <aside class="aside">
+        <img alt="Plated gourmet dish" src="https://images.unsplash.com/photo-1525755662778-989d0524087e?q=80&w=1200&auto=format&fit=crop" loading="lazy" />
+        <div class="meta"><span class="label">🔥 Top Today</span> Carol’s Cabbage Rolls — Toronto</div>
+        <div class="meta">📦 Order by 10PM • 🚚 Delivery 5–8PM tomorrow</div>
+        <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+          <a class="btn red" href="#menu" style="flex:1;text-align:center">Order Now — $18</a>
+          <a class="btn gold" href="#chefs" style="flex:1;text-align:center">Meet the Chef</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section how" id="how">
+      <div>
+        <h3>How Chefs2Table Works</h3>
+        <p class="meta">We vet chefs, curate menus, and deliver great meals with transparent pricing.</p>
+        <div class="steps">
+          <div class="step"><h4>1 • Discover</h4><p class="meta">Browse today’s curated menu featuring vetted local chefs.</p></div>
+          <div class="step"><h4>2 • Order</h4><p class="meta">Pick your dishes, choose a delivery window, checkout. $0.99 fee.</p></div>
+          <div class="step"><h4>3 • Enjoy & Rate</h4><p class="meta">Delivered fresh. Rate meals so top chefs rise to the top.</p></div>
+        </div>
+        <div style="margin-top:16px;padding:14px;background:#fff9f2;border-left:4px solid var(--gold);border-radius:10px"><strong style="color:var(--red)">🍽️ About the fee:</strong> The $0.99 platform fee covers payments, support, chef marketing, and platform upkeep.
+        </div>
+      </div>
+      <aside class="leaderboard">
+        <h4 style="margin:0 0 6px;color:var(--red)">🏆 Toronto Leaderboard</h4>
+        <p class="meta" style="margin:0 0 10px">Monthly chef rankings — winners get prizes & featured spots.</p>
+        <div class="row"><div class="rank">1</div><div><strong>Carol M.</strong><div class="meta">Cabbage Rolls • 4.9★ • 342 orders</div></div></div>
+        <div class="row"><div class="rank">2</div><div><strong>Marco P.</strong><div class="meta">Rigatoni • 4.8★ • 298 orders</div></div></div>
+        <div class="row"><div class="rank">3</div><div><strong>Sofia K.</strong><div class="meta">Manti Dumplings • 4.7★ • 267 orders</div></div></div>
+        <div style="display:flex;gap:10px;margin-top:12px"><a class="btn red" href="#chefs" style="flex:1;text-align:center">Nominate a Chef</a></div>
+      </aside>
+    </section>
+
+    <!-- RECRUIT CHEFS -->
+    <section class="section" id="chefs">
+      <h3>Calling All Hidden Chefs</h3>
+      <div class="recruit">
+        <div>
+          <p class="meta">Home cooks, culinary students, retired chefs — turn your kitchen into income. Low fees (15%), heavy exposure, monthly rewards for top performers.</p>
+          <ul style="margin:12px 0 16px 18px;color:var(--muted);line-height:1.8">
+            <li><strong>Earn more:</strong> Keep 85% of every sale</li>
+            <li><strong>Your schedule:</strong> Cook when you want, set your menu</li>
+            <li><strong>Monthly prizes:</strong> Cash + featured promotion</li>
+            <li><strong>We handle the rest:</strong> Marketing, orders, payments, support</li>
+            <li><strong>Food‑safety support:</strong> We help with certifications & setup</li>
+          </ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn gold" href="#onboard">Apply to Cook (2 min)</a>
+            <a class="btn ghost" href="#onboard">Compliance & Onboarding →</a>
+          </div>
+          <p class="meta" style="margin-top:10px">💰 Part‑time chefs earn ~$800–$2,400/month</p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1200&auto=format&fit=crop" alt="Chef preparing in a home kitchen" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section">
+      <h3>Loved by Foodies</h3>
+      <div class="tests">
+        <div class="test"><strong>Rita M.</strong> <span style="color:#f39c12">★★★★★</span><p>“Carol’s cabbage rolls tasted like my nonna’s. Honest, soulful cooking.”</p></div>
+        <div class="test"><strong>Daniel P.</strong> <span style="color:#f39c12">★★★★★</span><p>“Finally — restaurant‑quality that feels like home and costs less.”</p></div>
+        <div class="test"><strong>Sonia L.</strong> <span style="color:#f39c12">★★★★★</span><p>“The monthly competition makes it fun to discover new favorites.”</p></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h3>Frequently Asked Questions</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <details><summary>How do you vet chefs?</summary><p>All chefs complete an application, upload food‑safety credentials (or we help them get certified), pass a test‑meal review, and maintain a 4.5★+ rating.</p></details>
+        <details><summary>What if I don’t like my meal?</summary><p><strong>100% Money‑Back Guarantee.</strong> If you’re unsatisfied, contact us within 24h for a full refund.</p></details>
+        <details><summary>How fresh are the meals?</summary><p>Meals are prepared the same day or day prior — never shipped frozen. Delivered within 12–24 hours of cooking.</p></details>
+        <details><summary>Do you accommodate dietary needs?</summary><p>Yes. Filter by: Vegetarian, Vegan, Gluten‑Free, Dairy‑Free, Nut‑Free. For severe allergies, message the chef before ordering.</p></details>
+        <details><summary>Where do you deliver?</summary><p>Launching in Toronto, New York, Los Angeles, Vancouver, and Chicago. Join the waitlist to get notified for your city.</p></details>
+        <details><summary>Is it affordable?</summary><p>Meals range $15–$28 + a transparent $0.99 platform fee. Tips go 100% to chefs.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+        <small>© 2025 Chefs2Table.com. All rights reserved.</small>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#how">How it works</a>
+          <a href="#chefs">Become a chef</a>
+          <a href="#faq">FAQ</a>
+          <a href="#waitlist">Join Waitlist</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      document.getElementById('mnav').classList.toggle('show');
+    }
+    function joinWaitlist(e){
+      e.preventDefault();
+      const email=document.getElementById('email');
+      const city=document.getElementById('city');
+      if(!/^\S+@\S+\.\S+$/.test(email.value)||!city.value){
+        alert('Please enter a valid email and select a city.');
+        return;
+      }
+      const btn=e.submitter; if(btn){btn.disabled=true; btn.textContent='Joining…';}
+      setTimeout(()=>{
+        alert('🎉 You’re on the Chefs2Table waitlist! We’ll be in touch soon.');
+        if(btn){btn.disabled=false; btn.textContent='Join Waitlist';}
+        email.value=''; city.value='';
+      },1000);
+    }
+  </script>
+</body>
+</html>
+
+
