@@ -1,2 +1,2 @@
-# chef2table
+# chefs2table
 kickn' startup
