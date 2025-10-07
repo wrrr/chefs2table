@@ -1,2 +1,2 @@
-# chefs2table
+# chefs2table html mockup
 kickn' startup
